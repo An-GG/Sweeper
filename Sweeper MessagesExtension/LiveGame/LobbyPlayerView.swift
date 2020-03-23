@@ -90,4 +90,14 @@ class LobbyPlayer {
         self.color = color
         self.id = id
     }
+    
+    func getDictionary() -> [String:String] {
+        return [
+            "NAME" : name,
+            "IMAGENAME" : imageName,
+            "DISPLAYLETTERS" : displayLetters,
+            "COLOR" : color,
+            "ID" : id
+        ]
+    }
 }

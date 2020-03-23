@@ -33,9 +33,6 @@ class LiveFFAGameView : View, LiveGameDelegate, LiveMinefieldViewDelegate {
         minefieldView.delegate = self
         minefieldView.isHidden = true
         
-        let player = LobbyPlayer(name: "Jonatahn", imageName: "Sample", displayLetters: "SM", color: "Blue", id: "12343fdafsg")
-        lobbyView.set(players: [player, player, player, player])
-        
         self.addSubview(gameInstructionsView)
         self.addSubview(lobbyView)
         self.addSubview(readyButton)
@@ -55,8 +52,23 @@ class LiveFFAGameView : View, LiveGameDelegate, LiveMinefieldViewDelegate {
     
     // Internal Functions
     func liveUpdate(snap : DataSnapshot) {
-        // Go Through Every Event And Update Field Accordingly
+        
         let val = snap.value as! [String:Any]
+        
+        // Lobby Update
+        var lobby : [LobbyPlayer] = []
+        if let players = val["PLAYERS"] as? [String:[String:String]] {
+            let playerKeys = players.keys.sorted()
+            for key in playerKeys {
+                let player = players[key]!
+                print(player)
+                let lobbyPlayer = LobbyPlayer(name: player["NAME"]!, imageName: player["IMAGENAME"]!, displayLetters: player["DISPLAYLETTERS"]!, color: player["COLOR"]!, id: player["ID"]!)
+                lobby.append(lobbyPlayer)
+            }
+            lobbyView.set(players: lobby)
+        }
+        
+        // Minefield Events
         if let log = val["EVENTLOG"] as? [String:[String:Any]] {
             minefieldView.field.renderGrid()
             let events = log.keys.sorted()
@@ -77,7 +89,7 @@ class LiveFFAGameView : View, LiveGameDelegate, LiveMinefieldViewDelegate {
     // Delegate Interaction
     func becameReady() {
         startGame(UGID: "ASAelkjyffe")
-        minefieldView.isHidden = false
+        //minefieldView.isHidden = false
     }
     
     func cellUpdate(x: Int, y: Int, status: CellUpdateType) {
@@ -93,10 +105,10 @@ class LiveFFAGameView : View, LiveGameDelegate, LiveMinefieldViewDelegate {
     // Controller Interaction
     func startGame(UGID : String) {
         currentGameRef = globalDatabseRef.child(UGID)
-        let userID = "USER_B"
         
         // List User As Participant on DB
-        currentGameRef?.child("PLAYERS").child(userID).child("ID").setValue(userID)
+        let myPlayer = LobbyPlayer(name: "Ankush", imageName: "", displayLetters: "AG", color: "Green", id: "PLAYERID")
+        currentGameRef?.child("PLAYERS").childByAutoId().setValue(myPlayer.getDictionary())
         
         // Listen for All Updates
         currentGameRef?.observe(.value) { (snap) in
