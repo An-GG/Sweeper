@@ -1,0 +1,691 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 50;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		5717DD9823E7CC90007F61E3 /* FieldModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5717DD9723E7CC90007F61E3 /* FieldModel.swift */; };
+		572508BB23A897200034FB0D /* Minefield.swift in Sources */ = {isa = PBXBuildFile; fileRef = 572508BA23A897200034FB0D /* Minefield.swift */; };
+		572508BD23A897990034FB0D /* View.swift in Sources */ = {isa = PBXBuildFile; fileRef = 572508BC23A897990034FB0D /* View.swift */; };
+		572508BF23A8982A0034FB0D /* MineCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 572508BE23A8982A0034FB0D /* MineCell.swift */; };
+		5732495123A82C4D00B849D0 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5732495023A82C4D00B849D0 /* Assets.xcassets */; };
+		5732495823A82C4D00B849D0 /* Sweeper MessagesExtension.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = 5732495723A82C4D00B849D0 /* Sweeper MessagesExtension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		5732495D23A82C4D00B849D0 /* Messages.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5732495C23A82C4D00B849D0 /* Messages.framework */; };
+		5732496023A82C4D00B849D0 /* MessagesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5732495F23A82C4D00B849D0 /* MessagesViewController.swift */; };
+		5732496323A82C4D00B849D0 /* MainInterface.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5732496123A82C4D00B849D0 /* MainInterface.storyboard */; };
+		5732496523A82C4E00B849D0 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5732496423A82C4E00B849D0 /* Assets.xcassets */; };
+		57325CE823F248B900854932 /* TimedSetupController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57325CE723F248B900854932 /* TimedSetupController.swift */; };
+		575FF93D23F27F3F004DE08C /* TimedGameController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 575FF93C23F27F3F004DE08C /* TimedGameController.swift */; };
+		575FF93F23F519AE004DE08C /* GameControllerDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 575FF93E23F519AE004DE08C /* GameControllerDelegate.swift */; };
+		575FF94123F52059004DE08C /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 575FF94023F52059004DE08C /* Extensions.swift */; };
+		57852AE723F24BB4003053A2 /* FieldSetupController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57852AE623F24BB4003053A2 /* FieldSetupController.swift */; };
+		57D0D16C2407894D00733FD8 /* Comms.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57D0D16B2407894D00733FD8 /* Comms.swift */; };
+		57D0D16E24078A1400733FD8 /* Game.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57D0D16D24078A1400733FD8 /* Game.swift */; };
+		795271D524249F9100589F0F /* FFAGameSendController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 795271D424249F9100589F0F /* FFAGameSendController.swift */; };
+		797010C92424B71000288375 /* LiveGameView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 797010C82424B71000288375 /* LiveGameView.swift */; };
+		797010CC2424B9CE00288375 /* LiveFFAGameView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 797010CB2424B9CE00288375 /* LiveFFAGameView.swift */; };
+		798398D72424F89600B881D4 /* ConnectionStatusBarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 798398D62424F89600B881D4 /* ConnectionStatusBarView.swift */; };
+		798398D924257DF500B881D4 /* AppStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 798398D824257DF500B881D4 /* AppStyle.swift */; };
+		798398DB24273AD900B881D4 /* LobbyView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 798398DA24273AD900B881D4 /* LobbyView.swift */; };
+		798398DD24273FF000B881D4 /* GameOptionsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 798398DC24273FF000B881D4 /* GameOptionsView.swift */; };
+		798398DF2427420900B881D4 /* ReadyButtonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 798398DE2427420900B881D4 /* ReadyButtonView.swift */; };
+		798398E12427422900B881D4 /* GameInstructionsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 798398E02427422900B881D4 /* GameInstructionsView.swift */; };
+		79A599C9241C46FB009F5451 /* SendPopupController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79A599C8241C46FB009F5451 /* SendPopupController.swift */; };
+		79AE54B02422781800BC5A8C /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 79AE54AF2422781800BC5A8C /* GoogleService-Info.plist */; };
+		79AE54DF24227E6700BC5A8C /* FirebaseCoreDiagnostics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 79AE54D424227E6500BC5A8C /* FirebaseCoreDiagnostics.framework */; };
+		79AE54E024227E6700BC5A8C /* FirebaseAnalytics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 79AE54D524227E6600BC5A8C /* FirebaseAnalytics.framework */; };
+		79AE54E124227E6700BC5A8C /* FirebaseCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 79AE54D624227E6600BC5A8C /* FirebaseCore.framework */; };
+		79AE54E224227E6700BC5A8C /* GoogleDataTransport.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 79AE54D724227E6600BC5A8C /* GoogleDataTransport.framework */; };
+		79AE54E324227E6700BC5A8C /* GoogleAppMeasurement.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 79AE54D824227E6700BC5A8C /* GoogleAppMeasurement.framework */; };
+		79AE54E424227E6700BC5A8C /* FIRAnalyticsConnector.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 79AE54D924227E6700BC5A8C /* FIRAnalyticsConnector.framework */; };
+		79AE54E524227E6700BC5A8C /* GoogleDataTransportCCTSupport.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 79AE54DA24227E6700BC5A8C /* GoogleDataTransportCCTSupport.framework */; };
+		79AE54E624227E6700BC5A8C /* PromisesObjC.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 79AE54DB24227E6700BC5A8C /* PromisesObjC.framework */; };
+		79AE54E724227E6700BC5A8C /* FirebaseInstallations.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 79AE54DC24227E6700BC5A8C /* FirebaseInstallations.framework */; };
+		79AE54E824227E6700BC5A8C /* nanopb.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 79AE54DD24227E6700BC5A8C /* nanopb.framework */; };
+		79AE54E924227E6700BC5A8C /* GoogleUtilities.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 79AE54DE24227E6700BC5A8C /* GoogleUtilities.framework */; };
+		79AE54EC24227E8E00BC5A8C /* FirebaseDatabase.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 79AE54EA24227E8E00BC5A8C /* FirebaseDatabase.framework */; };
+		79AE54ED24227E8E00BC5A8C /* leveldb-library.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 79AE54EB24227E8E00BC5A8C /* leveldb-library.framework */; };
+		79AE54F12422814800BC5A8C /* libsqlite3.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 79AE54F02422810D00BC5A8C /* libsqlite3.tbd */; };
+		79AE54F42422818700BC5A8C /* libobjc.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 79AE54F32422817C00BC5A8C /* libobjc.tbd */; };
+		79AE54F62422826700BC5A8C /* libz.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 79AE54F52422826000BC5A8C /* libz.tbd */; };
+		79AE54F82422827A00BC5A8C /* libc++.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 79AE54F72422827500BC5A8C /* libc++.tbd */; };
+		79AE54FA2422829C00BC5A8C /* StoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 79AE54F92422829C00BC5A8C /* StoreKit.framework */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		5732495923A82C4D00B849D0 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 5732494723A82C4800B849D0 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 5732495623A82C4D00B849D0;
+			remoteInfo = "Sweeper MessagesExtension";
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		5732496C23A82C4E00B849D0 /* Embed App Extensions */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 13;
+			files = (
+				5732495823A82C4D00B849D0 /* Sweeper MessagesExtension.appex in Embed App Extensions */,
+			);
+			name = "Embed App Extensions";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
+/* Begin PBXFileReference section */
+		5717DD9723E7CC90007F61E3 /* FieldModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FieldModel.swift; sourceTree = "<group>"; };
+		572508BA23A897200034FB0D /* Minefield.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Minefield.swift; sourceTree = "<group>"; };
+		572508BC23A897990034FB0D /* View.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = View.swift; sourceTree = "<group>"; };
+		572508BE23A8982A0034FB0D /* MineCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MineCell.swift; sourceTree = "<group>"; };
+		5732494D23A82C4800B849D0 /* Sweeper.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Sweeper.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		5732495023A82C4D00B849D0 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		5732495223A82C4D00B849D0 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		5732495723A82C4D00B849D0 /* Sweeper MessagesExtension.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = "Sweeper MessagesExtension.appex"; sourceTree = BUILT_PRODUCTS_DIR; };
+		5732495C23A82C4D00B849D0 /* Messages.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Messages.framework; path = System/Library/Frameworks/Messages.framework; sourceTree = SDKROOT; };
+		5732495F23A82C4D00B849D0 /* MessagesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessagesViewController.swift; sourceTree = "<group>"; };
+		5732496223A82C4D00B849D0 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/MainInterface.storyboard; sourceTree = "<group>"; };
+		5732496423A82C4E00B849D0 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		5732496623A82C4E00B849D0 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		57325CE723F248B900854932 /* TimedSetupController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimedSetupController.swift; sourceTree = "<group>"; };
+		575FF93C23F27F3F004DE08C /* TimedGameController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TimedGameController.swift; sourceTree = "<group>"; };
+		575FF93E23F519AE004DE08C /* GameControllerDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameControllerDelegate.swift; sourceTree = "<group>"; };
+		575FF94023F52059004DE08C /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
+		57852AE623F24BB4003053A2 /* FieldSetupController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FieldSetupController.swift; sourceTree = "<group>"; };
+		57D0D16B2407894D00733FD8 /* Comms.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Comms.swift; sourceTree = "<group>"; };
+		57D0D16D24078A1400733FD8 /* Game.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Game.swift; sourceTree = "<group>"; };
+		795271D424249F9100589F0F /* FFAGameSendController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FFAGameSendController.swift; sourceTree = "<group>"; };
+		797010C82424B71000288375 /* LiveGameView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LiveGameView.swift; sourceTree = "<group>"; };
+		797010CB2424B9CE00288375 /* LiveFFAGameView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LiveFFAGameView.swift; sourceTree = "<group>"; };
+		798398D62424F89600B881D4 /* ConnectionStatusBarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConnectionStatusBarView.swift; sourceTree = "<group>"; };
+		798398D824257DF500B881D4 /* AppStyle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppStyle.swift; sourceTree = "<group>"; };
+		798398DA24273AD900B881D4 /* LobbyView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LobbyView.swift; sourceTree = "<group>"; };
+		798398DC24273FF000B881D4 /* GameOptionsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameOptionsView.swift; sourceTree = "<group>"; };
+		798398DE2427420900B881D4 /* ReadyButtonView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReadyButtonView.swift; sourceTree = "<group>"; };
+		798398E02427422900B881D4 /* GameInstructionsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameInstructionsView.swift; sourceTree = "<group>"; };
+		79A599C8241C46FB009F5451 /* SendPopupController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SendPopupController.swift; sourceTree = "<group>"; };
+		79AE54AF2422781800BC5A8C /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		79AE54D424227E6500BC5A8C /* FirebaseCoreDiagnostics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = FirebaseCoreDiagnostics.framework; sourceTree = "<group>"; };
+		79AE54D524227E6600BC5A8C /* FirebaseAnalytics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = FirebaseAnalytics.framework; sourceTree = "<group>"; };
+		79AE54D624227E6600BC5A8C /* FirebaseCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = FirebaseCore.framework; sourceTree = "<group>"; };
+		79AE54D724227E6600BC5A8C /* GoogleDataTransport.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = GoogleDataTransport.framework; sourceTree = "<group>"; };
+		79AE54D824227E6700BC5A8C /* GoogleAppMeasurement.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = GoogleAppMeasurement.framework; sourceTree = "<group>"; };
+		79AE54D924227E6700BC5A8C /* FIRAnalyticsConnector.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = FIRAnalyticsConnector.framework; sourceTree = "<group>"; };
+		79AE54DA24227E6700BC5A8C /* GoogleDataTransportCCTSupport.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = GoogleDataTransportCCTSupport.framework; sourceTree = "<group>"; };
+		79AE54DB24227E6700BC5A8C /* PromisesObjC.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = PromisesObjC.framework; sourceTree = "<group>"; };
+		79AE54DC24227E6700BC5A8C /* FirebaseInstallations.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = FirebaseInstallations.framework; sourceTree = "<group>"; };
+		79AE54DD24227E6700BC5A8C /* nanopb.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = nanopb.framework; sourceTree = "<group>"; };
+		79AE54DE24227E6700BC5A8C /* GoogleUtilities.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = GoogleUtilities.framework; sourceTree = "<group>"; };
+		79AE54EA24227E8E00BC5A8C /* FirebaseDatabase.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = FirebaseDatabase.framework; sourceTree = "<group>"; };
+		79AE54EB24227E8E00BC5A8C /* leveldb-library.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = "leveldb-library.framework"; sourceTree = "<group>"; };
+		79AE54EE2422800D00BC5A8C /* module.modulemap */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = "sourcecode.module-map"; path = module.modulemap; sourceTree = "<group>"; };
+		79AE54EF2422801800BC5A8C /* Firebase.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Firebase.h; sourceTree = "<group>"; };
+		79AE54F02422810D00BC5A8C /* libsqlite3.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libsqlite3.tbd; path = usr/lib/libsqlite3.tbd; sourceTree = SDKROOT; };
+		79AE54F22422814800BC5A8C /* libsqlite3.0.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libsqlite3.0.tbd; path = usr/lib/libsqlite3.0.tbd; sourceTree = SDKROOT; };
+		79AE54F32422817C00BC5A8C /* libobjc.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libobjc.tbd; path = usr/lib/libobjc.tbd; sourceTree = SDKROOT; };
+		79AE54F52422826000BC5A8C /* libz.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libz.tbd; path = usr/lib/libz.tbd; sourceTree = SDKROOT; };
+		79AE54F72422827500BC5A8C /* libc++.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = "libc++.tbd"; path = "usr/lib/libc++.tbd"; sourceTree = SDKROOT; };
+		79AE54F92422829C00BC5A8C /* StoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = StoreKit.framework; path = System/Library/Frameworks/StoreKit.framework; sourceTree = SDKROOT; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		5732495423A82C4D00B849D0 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				79AE54F12422814800BC5A8C /* libsqlite3.tbd in Frameworks */,
+				79AE54E224227E6700BC5A8C /* GoogleDataTransport.framework in Frameworks */,
+				79AE54EC24227E8E00BC5A8C /* FirebaseDatabase.framework in Frameworks */,
+				79AE54FA2422829C00BC5A8C /* StoreKit.framework in Frameworks */,
+				79AE54E724227E6700BC5A8C /* FirebaseInstallations.framework in Frameworks */,
+				79AE54E824227E6700BC5A8C /* nanopb.framework in Frameworks */,
+				79AE54E124227E6700BC5A8C /* FirebaseCore.framework in Frameworks */,
+				79AE54F82422827A00BC5A8C /* libc++.tbd in Frameworks */,
+				79AE54ED24227E8E00BC5A8C /* leveldb-library.framework in Frameworks */,
+				79AE54F62422826700BC5A8C /* libz.tbd in Frameworks */,
+				79AE54E624227E6700BC5A8C /* PromisesObjC.framework in Frameworks */,
+				79AE54F42422818700BC5A8C /* libobjc.tbd in Frameworks */,
+				79AE54E324227E6700BC5A8C /* GoogleAppMeasurement.framework in Frameworks */,
+				79AE54E924227E6700BC5A8C /* GoogleUtilities.framework in Frameworks */,
+				5732495D23A82C4D00B849D0 /* Messages.framework in Frameworks */,
+				79AE54E424227E6700BC5A8C /* FIRAnalyticsConnector.framework in Frameworks */,
+				79AE54DF24227E6700BC5A8C /* FirebaseCoreDiagnostics.framework in Frameworks */,
+				79AE54E524227E6700BC5A8C /* GoogleDataTransportCCTSupport.framework in Frameworks */,
+				79AE54E024227E6700BC5A8C /* FirebaseAnalytics.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		5732494623A82C4800B849D0 = {
+			isa = PBXGroup;
+			children = (
+				79AE54D324227DD100BC5A8C /* Firebase */,
+				5732494F23A82C4800B849D0 /* Sweeper */,
+				5732495E23A82C4D00B849D0 /* Sweeper MessagesExtension */,
+				5732495B23A82C4D00B849D0 /* Frameworks */,
+				5732494E23A82C4800B849D0 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		5732494E23A82C4800B849D0 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				5732494D23A82C4800B849D0 /* Sweeper.app */,
+				5732495723A82C4D00B849D0 /* Sweeper MessagesExtension.appex */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		5732494F23A82C4800B849D0 /* Sweeper */ = {
+			isa = PBXGroup;
+			children = (
+				5732495023A82C4D00B849D0 /* Assets.xcassets */,
+				5732495223A82C4D00B849D0 /* Info.plist */,
+			);
+			path = Sweeper;
+			sourceTree = "<group>";
+		};
+		5732495B23A82C4D00B849D0 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				79AE54F92422829C00BC5A8C /* StoreKit.framework */,
+				79AE54F72422827500BC5A8C /* libc++.tbd */,
+				79AE54F52422826000BC5A8C /* libz.tbd */,
+				79AE54F32422817C00BC5A8C /* libobjc.tbd */,
+				79AE54F22422814800BC5A8C /* libsqlite3.0.tbd */,
+				79AE54F02422810D00BC5A8C /* libsqlite3.tbd */,
+				5732495C23A82C4D00B849D0 /* Messages.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		5732495E23A82C4D00B849D0 /* Sweeper MessagesExtension */ = {
+			isa = PBXGroup;
+			children = (
+				79AE54EF2422801800BC5A8C /* Firebase.h */,
+				79AE54EE2422800D00BC5A8C /* module.modulemap */,
+				5732496123A82C4D00B849D0 /* MainInterface.storyboard */,
+				5732495F23A82C4D00B849D0 /* MessagesViewController.swift */,
+				797010CA2424B9BB00288375 /* LiveGame */,
+				794E0E5524221BDE008E3663 /* Game Control */,
+				794E0E5424221BBC008E3663 /* Minefield Primatives */,
+				794E0E5724221C3C008E3663 /* TimedMode */,
+				795271D624249FA200589F0F /* FFAMode */,
+				794E0E5624221BFD008E3663 /* Accessory */,
+				5732496423A82C4E00B849D0 /* Assets.xcassets */,
+				5732496623A82C4E00B849D0 /* Info.plist */,
+				79AE54AF2422781800BC5A8C /* GoogleService-Info.plist */,
+			);
+			path = "Sweeper MessagesExtension";
+			sourceTree = "<group>";
+		};
+		794E0E5424221BBC008E3663 /* Minefield Primatives */ = {
+			isa = PBXGroup;
+			children = (
+				572508BA23A897200034FB0D /* Minefield.swift */,
+				572508BE23A8982A0034FB0D /* MineCell.swift */,
+				5717DD9723E7CC90007F61E3 /* FieldModel.swift */,
+			);
+			path = "Minefield Primatives";
+			sourceTree = "<group>";
+		};
+		794E0E5524221BDE008E3663 /* Game Control */ = {
+			isa = PBXGroup;
+			children = (
+				575FF93E23F519AE004DE08C /* GameControllerDelegate.swift */,
+				57D0D16B2407894D00733FD8 /* Comms.swift */,
+				57D0D16D24078A1400733FD8 /* Game.swift */,
+				57852AE623F24BB4003053A2 /* FieldSetupController.swift */,
+				79A599C8241C46FB009F5451 /* SendPopupController.swift */,
+			);
+			path = "Game Control";
+			sourceTree = "<group>";
+		};
+		794E0E5624221BFD008E3663 /* Accessory */ = {
+			isa = PBXGroup;
+			children = (
+				575FF94023F52059004DE08C /* Extensions.swift */,
+				798398D824257DF500B881D4 /* AppStyle.swift */,
+				572508BC23A897990034FB0D /* View.swift */,
+			);
+			path = Accessory;
+			sourceTree = "<group>";
+		};
+		794E0E5724221C3C008E3663 /* TimedMode */ = {
+			isa = PBXGroup;
+			children = (
+				575FF93C23F27F3F004DE08C /* TimedGameController.swift */,
+				57325CE723F248B900854932 /* TimedSetupController.swift */,
+			);
+			path = TimedMode;
+			sourceTree = "<group>";
+		};
+		795271D624249FA200589F0F /* FFAMode */ = {
+			isa = PBXGroup;
+			children = (
+				795271D424249F9100589F0F /* FFAGameSendController.swift */,
+			);
+			path = FFAMode;
+			sourceTree = "<group>";
+		};
+		797010CA2424B9BB00288375 /* LiveGame */ = {
+			isa = PBXGroup;
+			children = (
+				797010C82424B71000288375 /* LiveGameView.swift */,
+				797010CB2424B9CE00288375 /* LiveFFAGameView.swift */,
+				798398D62424F89600B881D4 /* ConnectionStatusBarView.swift */,
+				798398DA24273AD900B881D4 /* LobbyView.swift */,
+				798398DC24273FF000B881D4 /* GameOptionsView.swift */,
+				798398DE2427420900B881D4 /* ReadyButtonView.swift */,
+				798398E02427422900B881D4 /* GameInstructionsView.swift */,
+			);
+			path = LiveGame;
+			sourceTree = "<group>";
+		};
+		79AE54D324227DD100BC5A8C /* Firebase */ = {
+			isa = PBXGroup;
+			children = (
+				79AE54EA24227E8E00BC5A8C /* FirebaseDatabase.framework */,
+				79AE54EB24227E8E00BC5A8C /* leveldb-library.framework */,
+				79AE54D924227E6700BC5A8C /* FIRAnalyticsConnector.framework */,
+				79AE54D524227E6600BC5A8C /* FirebaseAnalytics.framework */,
+				79AE54D624227E6600BC5A8C /* FirebaseCore.framework */,
+				79AE54D424227E6500BC5A8C /* FirebaseCoreDiagnostics.framework */,
+				79AE54DC24227E6700BC5A8C /* FirebaseInstallations.framework */,
+				79AE54D824227E6700BC5A8C /* GoogleAppMeasurement.framework */,
+				79AE54D724227E6600BC5A8C /* GoogleDataTransport.framework */,
+				79AE54DA24227E6700BC5A8C /* GoogleDataTransportCCTSupport.framework */,
+				79AE54DE24227E6700BC5A8C /* GoogleUtilities.framework */,
+				79AE54DD24227E6700BC5A8C /* nanopb.framework */,
+				79AE54DB24227E6700BC5A8C /* PromisesObjC.framework */,
+			);
+			path = Firebase;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		5732494C23A82C4800B849D0 /* Sweeper */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 5732496D23A82C4E00B849D0 /* Build configuration list for PBXNativeTarget "Sweeper" */;
+			buildPhases = (
+				5732494B23A82C4800B849D0 /* Resources */,
+				5732496C23A82C4E00B849D0 /* Embed App Extensions */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				5732495A23A82C4D00B849D0 /* PBXTargetDependency */,
+			);
+			name = Sweeper;
+			productName = Sweeper;
+			productReference = 5732494D23A82C4800B849D0 /* Sweeper.app */;
+			productType = "com.apple.product-type.application.messages";
+		};
+		5732495623A82C4D00B849D0 /* Sweeper MessagesExtension */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 5732496923A82C4E00B849D0 /* Build configuration list for PBXNativeTarget "Sweeper MessagesExtension" */;
+			buildPhases = (
+				5732495323A82C4D00B849D0 /* Sources */,
+				5732495423A82C4D00B849D0 /* Frameworks */,
+				5732495523A82C4D00B849D0 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "Sweeper MessagesExtension";
+			productName = "Sweeper MessagesExtension";
+			productReference = 5732495723A82C4D00B849D0 /* Sweeper MessagesExtension.appex */;
+			productType = "com.apple.product-type.app-extension.messages";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		5732494723A82C4800B849D0 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 1130;
+				LastUpgradeCheck = 1130;
+				ORGANIZATIONNAME = "Ankush Girotra";
+				TargetAttributes = {
+					5732494C23A82C4800B849D0 = {
+						CreatedOnToolsVersion = 11.3;
+					};
+					5732495623A82C4D00B849D0 = {
+						CreatedOnToolsVersion = 11.3;
+					};
+				};
+			};
+			buildConfigurationList = 5732494A23A82C4800B849D0 /* Build configuration list for PBXProject "Sweeper" */;
+			compatibilityVersion = "Xcode 9.3";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 5732494623A82C4800B849D0;
+			productRefGroup = 5732494E23A82C4800B849D0 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				5732494C23A82C4800B849D0 /* Sweeper */,
+				5732495623A82C4D00B849D0 /* Sweeper MessagesExtension */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		5732494B23A82C4800B849D0 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				5732495123A82C4D00B849D0 /* Assets.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		5732495523A82C4D00B849D0 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				5732496523A82C4E00B849D0 /* Assets.xcassets in Resources */,
+				5732496323A82C4D00B849D0 /* MainInterface.storyboard in Resources */,
+				79AE54B02422781800BC5A8C /* GoogleService-Info.plist in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		5732495323A82C4D00B849D0 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				5732496023A82C4D00B849D0 /* MessagesViewController.swift in Sources */,
+				795271D524249F9100589F0F /* FFAGameSendController.swift in Sources */,
+				797010CC2424B9CE00288375 /* LiveFFAGameView.swift in Sources */,
+				798398E12427422900B881D4 /* GameInstructionsView.swift in Sources */,
+				572508BB23A897200034FB0D /* Minefield.swift in Sources */,
+				5717DD9823E7CC90007F61E3 /* FieldModel.swift in Sources */,
+				57D0D16E24078A1400733FD8 /* Game.swift in Sources */,
+				572508BF23A8982A0034FB0D /* MineCell.swift in Sources */,
+				79A599C9241C46FB009F5451 /* SendPopupController.swift in Sources */,
+				572508BD23A897990034FB0D /* View.swift in Sources */,
+				798398DD24273FF000B881D4 /* GameOptionsView.swift in Sources */,
+				57852AE723F24BB4003053A2 /* FieldSetupController.swift in Sources */,
+				575FF93D23F27F3F004DE08C /* TimedGameController.swift in Sources */,
+				797010C92424B71000288375 /* LiveGameView.swift in Sources */,
+				575FF93F23F519AE004DE08C /* GameControllerDelegate.swift in Sources */,
+				798398D72424F89600B881D4 /* ConnectionStatusBarView.swift in Sources */,
+				798398DF2427420900B881D4 /* ReadyButtonView.swift in Sources */,
+				57D0D16C2407894D00733FD8 /* Comms.swift in Sources */,
+				575FF94123F52059004DE08C /* Extensions.swift in Sources */,
+				57325CE823F248B900854932 /* TimedSetupController.swift in Sources */,
+				798398D924257DF500B881D4 /* AppStyle.swift in Sources */,
+				798398DB24273AD900B881D4 /* LobbyView.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		5732495A23A82C4D00B849D0 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 5732495623A82C4D00B849D0 /* Sweeper MessagesExtension */;
+			targetProxy = 5732495923A82C4D00B849D0 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		5732496123A82C4D00B849D0 /* MainInterface.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				5732496223A82C4D00B849D0 /* Base */,
+			);
+			name = MainInterface.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		5732496723A82C4E00B849D0 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		5732496823A82C4E00B849D0 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		5732496A23A82C4E00B849D0 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = "iMessage App Icon";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = QCLBA324PV;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Firebase",
+				);
+				INFOPLIST_FILE = "Sweeper MessagesExtension/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@executable_path/../../Frameworks",
+				);
+				OTHER_LDFLAGS = "-ObjC";
+				PRODUCT_BUNDLE_IDENTIFIER = ankushgirotra.Sweeper.MessagesExtension;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		5732496B23A82C4E00B849D0 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = "iMessage App Icon";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = QCLBA324PV;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Firebase",
+				);
+				INFOPLIST_FILE = "Sweeper MessagesExtension/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@executable_path/../../Frameworks",
+				);
+				OTHER_LDFLAGS = "-ObjC";
+				PRODUCT_BUNDLE_IDENTIFIER = ankushgirotra.Sweeper.MessagesExtension;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+		5732496E23A82C4E00B849D0 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = QCLBA324PV;
+				INFOPLIST_FILE = Sweeper/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = "-";
+				PRODUCT_BUNDLE_IDENTIFIER = ankushgirotra.Sweeper;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		5732496F23A82C4E00B849D0 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = QCLBA324PV;
+				INFOPLIST_FILE = Sweeper/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = "-";
+				PRODUCT_BUNDLE_IDENTIFIER = ankushgirotra.Sweeper;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		5732494A23A82C4800B849D0 /* Build configuration list for PBXProject "Sweeper" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				5732496723A82C4E00B849D0 /* Debug */,
+				5732496823A82C4E00B849D0 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		5732496923A82C4E00B849D0 /* Build configuration list for PBXNativeTarget "Sweeper MessagesExtension" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				5732496A23A82C4E00B849D0 /* Debug */,
+				5732496B23A82C4E00B849D0 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		5732496D23A82C4E00B849D0 /* Build configuration list for PBXNativeTarget "Sweeper" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				5732496E23A82C4E00B849D0 /* Debug */,
+				5732496F23A82C4E00B849D0 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 5732494723A82C4800B849D0 /* Project object */;
+}
