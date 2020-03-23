@@ -26,6 +26,7 @@ class LiveFFAGameView : View, LiveGameDelegate, LiveMinefieldViewDelegate {
     var chanceNumber = 0
     var nPlayersLastUpdate = 0
     var currentGameRef : DatabaseReference?
+    var playerRef : DatabaseReference?
     var id : String?
     
     override func initialize() {
@@ -72,7 +73,7 @@ class LiveFFAGameView : View, LiveGameDelegate, LiveMinefieldViewDelegate {
             for key in playerKeys {
                 let player = players[key]!
                 print(player)
-                let lobbyPlayer = LobbyPlayer(name: player["NAME"]!, imageName: player["IMAGENAME"]!, displayLetters: player["DISPLAYLETTERS"]!, color: player["COLOR"]!, id: player["ID"]!)
+                let lobbyPlayer = LobbyPlayer(name: player["NAME"]!, imageName: player["IMAGENAME"]!, displayLetters: player["DISPLAYLETTERS"]!, color: player["COLOR"]!, id: player["ID"]!, ready: player["READY"]!)
                 lobby.append(lobbyPlayer)
             }
             lobbyView.set(players: lobby)
@@ -109,9 +110,14 @@ class LiveFFAGameView : View, LiveGameDelegate, LiveMinefieldViewDelegate {
     
     // Delegate Interaction
     func becameReady() {
-        startGame(UGID: "ASAelkjyffe")
-        //minefieldView.isHidden = false
+        playerRef?.child("READY").setValue("YES")
     }
+    
+    func becameUnready() {
+        playerRef?.child("READY").setValue("NO")
+    }
+    
+    
     
     func cellUpdate(x: Int, y: Int, status: CellUpdateType) {
         let event : [String:String] = [
@@ -126,12 +132,13 @@ class LiveFFAGameView : View, LiveGameDelegate, LiveMinefieldViewDelegate {
     // Controller Interaction
     func startGame(UGID : String) {
         currentGameRef = globalDatabseRef.child(UGID)
+        playerRef = currentGameRef?.child("PLAYERS").childByAutoId()
         id = convo?.localParticipantIdentifier.uuidString
         chanceNumber = randomNumber()
         
         // List User As Participant on DB
-        let playerDict = LobbyPlayer(name: "Ankush", imageName: "", displayLetters: "AG", color: "Green", id: id!).getDictionary()
-        currentGameRef?.child("PLAYERS").childByAutoId().setValue(playerDict)
+        let playerDict = LobbyPlayer(name: "Ankush", imageName: "", displayLetters: "AG", color: "Green", id: id!, ready: "NO").getDictionary()
+        playerRef?.setValue(playerDict)
         
         // Listen for All Updates
         currentGameRef?.observe(.value) { (snap) in

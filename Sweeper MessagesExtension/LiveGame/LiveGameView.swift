@@ -48,8 +48,6 @@ class LiveGameView : View {
         self.addSubview(connectionStatusBar)
         self.addSubview(endButtonBackground)
         self.addSubview(endButton)
-        
-        
     }
     
     override func layout() {

@@ -69,6 +69,9 @@ class LobbyPlayerView : View {
         if let img = UIImage(named: player!.name) {
             imageView.image = img
         }
+        if player?.ready == "YES" {
+            outline.backgroundColor = get(color: .gGreen)
+        }
     }
     
 }
@@ -80,13 +83,15 @@ class LobbyPlayer {
     var displayLetters : String
     var color : String
     var id : String
+    var ready : String
     
-    required init(name: String, imageName: String, displayLetters: String, color: String, id : String) {
+    required init(name: String, imageName: String, displayLetters: String, color: String, id : String, ready : String) {
         self.name = name
         self.imageName = imageName
         self.displayLetters = displayLetters
         self.color = color
         self.id = id
+        self.ready = ready
     }
     
     func getDictionary() -> [String:String] {
@@ -95,7 +100,8 @@ class LobbyPlayer {
             "IMAGENAME" : imageName,
             "DISPLAYLETTERS" : displayLetters,
             "COLOR" : color,
-            "ID" : id
+            "ID" : id,
+            "READY" : ready
         ]
     }
 }

@@ -28,10 +28,12 @@ class MessagesViewController: MSMessagesAppViewController {
         globalDatabseRef = Database.database().reference()
         
         self.view.addSubview(liveView)
-        liveView.isHidden = false
+        liveView.isHidden = true
     }
-
     
+    override func viewLayoutMarginsDidChange() {
+        
+    }
 
     // MARK: - Conversation Handling
     
@@ -48,6 +50,10 @@ class MessagesViewController: MSMessagesAppViewController {
             globalComms.launchGame(url: conversation.selectedMessage!.url!)
             print("Game Launch Attemped From Activation")
         }
+    }
+    
+    func layout() {
+        liveView.frame = CGRect(x: 0, y: 0, width: self.view.bounds.width, height: self.view.frame.height - self.view.safeAreaInsets.bottom)
     }
     
     override func didResignActive(with conversation: MSConversation) {
@@ -83,11 +89,12 @@ class MessagesViewController: MSMessagesAppViewController {
     }
     
     override func didTransition(to presentationStyle: MSMessagesAppPresentationStyle) {
-        liveView.frame = CGRect(x: 0, y: 0, width: self.view.bounds.width, height: self.view.frame.height - self.view.safeAreaInsets.bottom)
+        layout()
     }
     
     // Live Game Setup
     func startLiveGame(UGID: String, gamemode: Gamemode) {
+        layout()
         dismiss(animated: true, completion: nil)
         liveView.isHidden = false
         liveView.startGame(UGID: UGID, gamemode: gamemode)
