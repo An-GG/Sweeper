@@ -12,7 +12,6 @@ import UIKit
 
 class Minefield : View, UIScrollViewDelegate {
     
-    
     var currentCells : [MineCell] = []
     var X_COUNT = 12
     var Y_COUNT = 10
@@ -23,6 +22,7 @@ class Minefield : View, UIScrollViewDelegate {
     let scroll = UIScrollView()
     let zoomableView = UIView()
     
+    var liveMinefieldController : LiveMinefieldView?
     var controller : GameControllerDelegate?
     
     var status : gameStatusType = .inProgress
@@ -30,8 +30,8 @@ class Minefield : View, UIScrollViewDelegate {
     override func initialize() {
         scroll.backgroundColor = .clear
         scroll.delegate = self
-        scroll.maximumZoomScale = 10
-        scroll.minimumZoomScale = 1
+        scroll.maximumZoomScale = 5
+        scroll.minimumZoomScale = 0.7
         scroll.showsHorizontalScrollIndicator = false
         scroll.showsVerticalScrollIndicator = false
         scroll.bounces = false
@@ -94,6 +94,9 @@ class Minefield : View, UIScrollViewDelegate {
             }
         }
         checkIfGameOver()
+        
+        // Live Controller Updates
+        liveMinefieldController?.cellClicked(x: x, y: y)
     }
     
     func checkIfGameOver() {

@@ -22,7 +22,7 @@ class MineCell : View {
     var padding : CGFloat = 2.5
     
     override func initialize() {
-        self.backgroundColor = .black
+        self.backgroundColor = .clear
         image.image = UIImage(named: "NewMineCellBack")
         numLabel.font = .systemFont(ofSize: 10, weight: .bold)
         numLabel.textColor = .red
@@ -46,6 +46,9 @@ class MineCell : View {
     
     func openCell() {
         cover.isHidden = true
+    }
+    func closeCell() {
+        cover.isHidden = false
     }
     func flagCell() {
         
@@ -85,10 +88,6 @@ class MineCell : View {
         }
     }
     
-    
-    
-    
-    
     func setStyle(style : cellStyle) {
         
     }
@@ -101,9 +100,6 @@ class MineCell : View {
             
         }
     }
-    
-    
-    
     
 }
 

@@ -33,6 +33,8 @@
 		798398DD24273FF000B881D4 /* GameOptionsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 798398DC24273FF000B881D4 /* GameOptionsView.swift */; };
 		798398DF2427420900B881D4 /* ReadyButtonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 798398DE2427420900B881D4 /* ReadyButtonView.swift */; };
 		798398E12427422900B881D4 /* GameInstructionsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 798398E02427422900B881D4 /* GameInstructionsView.swift */; };
+		79A19B5A2428AE1000335BC7 /* LiveGameDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79A19B592428AE1000335BC7 /* LiveGameDelegate.swift */; };
+		79A19B5C2428AFB100335BC7 /* LiveMinefieldView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79A19B5B2428AFB100335BC7 /* LiveMinefieldView.swift */; };
 		79A599C9241C46FB009F5451 /* SendPopupController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79A599C8241C46FB009F5451 /* SendPopupController.swift */; };
 		79AE54B02422781800BC5A8C /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 79AE54AF2422781800BC5A8C /* GoogleService-Info.plist */; };
 		79AE54DF24227E6700BC5A8C /* FirebaseCoreDiagnostics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 79AE54D424227E6500BC5A8C /* FirebaseCoreDiagnostics.framework */; };
@@ -109,6 +111,8 @@
 		798398DC24273FF000B881D4 /* GameOptionsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameOptionsView.swift; sourceTree = "<group>"; };
 		798398DE2427420900B881D4 /* ReadyButtonView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReadyButtonView.swift; sourceTree = "<group>"; };
 		798398E02427422900B881D4 /* GameInstructionsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameInstructionsView.swift; sourceTree = "<group>"; };
+		79A19B592428AE1000335BC7 /* LiveGameDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LiveGameDelegate.swift; sourceTree = "<group>"; };
+		79A19B5B2428AFB100335BC7 /* LiveMinefieldView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LiveMinefieldView.swift; sourceTree = "<group>"; };
 		79A599C8241C46FB009F5451 /* SendPopupController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SendPopupController.swift; sourceTree = "<group>"; };
 		79AE54AF2422781800BC5A8C /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		79AE54D424227E6500BC5A8C /* FirebaseCoreDiagnostics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = FirebaseCoreDiagnostics.framework; sourceTree = "<group>"; };
@@ -280,7 +284,9 @@
 			isa = PBXGroup;
 			children = (
 				797010C82424B71000288375 /* LiveGameView.swift */,
+				79A19B592428AE1000335BC7 /* LiveGameDelegate.swift */,
 				797010CB2424B9CE00288375 /* LiveFFAGameView.swift */,
+				79A19B5B2428AFB100335BC7 /* LiveMinefieldView.swift */,
 				798398D62424F89600B881D4 /* ConnectionStatusBarView.swift */,
 				798398DA24273AD900B881D4 /* LobbyView.swift */,
 				798398DC24273FF000B881D4 /* GameOptionsView.swift */,
@@ -412,10 +418,12 @@
 			files = (
 				5732496023A82C4D00B849D0 /* MessagesViewController.swift in Sources */,
 				795271D524249F9100589F0F /* FFAGameSendController.swift in Sources */,
+				79A19B5C2428AFB100335BC7 /* LiveMinefieldView.swift in Sources */,
 				797010CC2424B9CE00288375 /* LiveFFAGameView.swift in Sources */,
 				798398E12427422900B881D4 /* GameInstructionsView.swift in Sources */,
 				572508BB23A897200034FB0D /* Minefield.swift in Sources */,
 				5717DD9823E7CC90007F61E3 /* FieldModel.swift in Sources */,
+				79A19B5A2428AE1000335BC7 /* LiveGameDelegate.swift in Sources */,
 				57D0D16E24078A1400733FD8 /* Game.swift in Sources */,
 				572508BF23A8982A0034FB0D /* MineCell.swift in Sources */,
 				79A599C9241C46FB009F5451 /* SendPopupController.swift in Sources */,
