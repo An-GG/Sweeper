@@ -18,13 +18,16 @@ class GameOptionView : View {
     let NAME_LABEL_HEIGHT : CGFloat = 20
     
     override func initialize() {
-        optionNameLabel.font = UIFont(name: "DINCondensed-Bold", size: 10)
+        clipsToBounds = false
+        
+        optionNameLabel.font = UIFont(name: "DINCondensed-Bold", size: 13)
         optionNameLabel.textColor = .black
         optionNameLabel.textAlignment = .center
         
-        bigLabel.font = UIFont(name: "DINCondensed-Bold", size: 25)
+        bigLabel.font = UIFont(name: "DINCondensed-Bold", size: 30)
         bigLabel.textColor = .black
         bigLabel.textAlignment = .center
+        bigLabel.clipsToBounds = false
         
         image.contentMode = .scaleAspectFit
         
@@ -35,7 +38,7 @@ class GameOptionView : View {
     
     override func layout() {
         optionNameLabel.frame = CGRect(x: 0, y: bounds.height - NAME_LABEL_HEIGHT, width: bounds.width, height: NAME_LABEL_HEIGHT)
-        bigLabel.frame = CGRect(x: 0, y: 0, width: bounds.width, height: bounds.height - NAME_LABEL_HEIGHT)
+        bigLabel.frame = CGRect(x: 0, y: 4, width: bounds.width, height: bounds.height - NAME_LABEL_HEIGHT)
         image.frame = bigLabel.frame
     }
     

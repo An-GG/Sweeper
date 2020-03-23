@@ -38,9 +38,10 @@ class GameOptionsView : View {
         mainBackground.frame = CGRect(x: BACKGROUND_PADDING, y: 0, width: bounds.width - (2*BACKGROUND_PADDING), height: bounds.height)
         titleLabel.frame = CGRect(x: 10, y: 6, width: mainBackground.bounds.width - 20, height: 30)
         var n : CGFloat = 1
-        let distance = mainBackground.bounds.width / CGFloat(1 + currentOptions.count)
+        let spreadConstant : CGFloat = 1.25
+        let distance = (mainBackground.bounds.width / CGFloat(1 + currentOptions.count)) * spreadConstant
         for op in currentOptions {
-            op.frame = CGRect(x: (distance * n) - (OPTIONS_WIDTH / 2), y: OPTION_TOP_PADDING, width: OPTIONS_WIDTH, height: mainBackground.bounds.height - OPTION_TOP_PADDING)
+            op.frame = CGRect(x: ((distance * n) - (OPTIONS_WIDTH / 2)) - (((spreadConstant - 1) * mainBackground.bounds.width) / 2), y: OPTION_TOP_PADDING, width: OPTIONS_WIDTH, height: mainBackground.bounds.height - OPTION_TOP_PADDING)
             n += 1
         }
     }
