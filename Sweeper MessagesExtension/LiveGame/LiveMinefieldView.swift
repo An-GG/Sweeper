@@ -65,7 +65,8 @@ class LiveMinefieldView: View {
         let cell = field.field.getMine(xPos: x, yPos: y)?.cellView
         switch status {
         case .opened:
-            cell?.openCell()
+            cell?.externalUserCellClick()
+            print(randomNumber())
         }
     }
     

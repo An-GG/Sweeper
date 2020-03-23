@@ -56,9 +56,14 @@ class MineCell : View {
     
     var holdWaiting = false
     
+    func externalUserCellClick() {
+        controller!.cellClicked(x: loc!.x, y: loc!.y)
+    }
+    
     @objc func cellClicked() {
         if holdWaiting {
             controller!.cellClicked(x: loc!.x, y: loc!.y)
+            controller!.liveMinefieldController?.cellClicked(x: loc!.x, y: loc!.y)
             holdWaiting = false
         }
     }

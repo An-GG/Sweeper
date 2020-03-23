@@ -55,14 +55,13 @@ class LiveFFAGameView : View, LiveGameDelegate, LiveMinefieldViewDelegate {
         // Go Through Every Event And Update Field Accordingly
         let val = snap.value as! [String:Any]
         if let log = val["EVENTLOG"] as? [String:[String:Any]] {
+            minefieldView.field.renderGrid()
             let events = log.keys.sorted()
             for event in events {
                 let x = log[event]?["CELL_X"] as! String
                 let y = log[event]?["CELL_Y"] as! String
                 let type = log[event]?["TYPE"] as! String
-                
                 if type == "OPENED" {
-                    
                     minefieldView.setCell(x: Int(x)!, y: Int(y)!, status: .opened)
                 }
             }
@@ -74,7 +73,7 @@ class LiveFFAGameView : View, LiveGameDelegate, LiveMinefieldViewDelegate {
     
     // Delegate Interaction
     func becameReady() {
-        startGame(UGID: "ASAeffe")
+        startGame(UGID: "ASAelkjyffe")
         minefieldView.isHidden = false
     }
     
@@ -91,7 +90,7 @@ class LiveFFAGameView : View, LiveGameDelegate, LiveMinefieldViewDelegate {
     // Controller Interaction
     func startGame(UGID : String) {
         currentGameRef = globalDatabseRef.child(UGID)
-        let userID = "USER_A"
+        let userID = "USER_B"
         
         // List User As Participant on DB
         currentGameRef?.child("PLAYERS").child(userID).child("ID").setValue(userID)

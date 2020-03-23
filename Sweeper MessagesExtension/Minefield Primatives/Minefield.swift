@@ -37,7 +37,7 @@ class Minefield : View, UIScrollViewDelegate {
         scroll.bounces = false
         self.addSubview(scroll)
         scroll.addSubview(zoomableView)
-        field.generateGrid(X: X_COUNT, Y: Y_COUNT, nMines: 40)
+        field.generateGrid(X: X_COUNT, Y: Y_COUNT, nMines: 8)
     }
     
     func viewForZooming(in scrollView: UIScrollView) -> UIView? {
@@ -95,8 +95,6 @@ class Minefield : View, UIScrollViewDelegate {
         }
         checkIfGameOver()
         
-        // Live Controller Updates
-        liveMinefieldController?.cellClicked(x: x, y: y)
     }
     
     func checkIfGameOver() {

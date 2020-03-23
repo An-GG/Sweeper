@@ -35,6 +35,7 @@
 		798398E12427422900B881D4 /* GameInstructionsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 798398E02427422900B881D4 /* GameInstructionsView.swift */; };
 		79A19B5A2428AE1000335BC7 /* LiveGameDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79A19B592428AE1000335BC7 /* LiveGameDelegate.swift */; };
 		79A19B5C2428AFB100335BC7 /* LiveMinefieldView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79A19B5B2428AFB100335BC7 /* LiveMinefieldView.swift */; };
+		79A19B5E2428E9EF00335BC7 /* LobbyPlayerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79A19B5D2428E9EF00335BC7 /* LobbyPlayerView.swift */; };
 		79A599C9241C46FB009F5451 /* SendPopupController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79A599C8241C46FB009F5451 /* SendPopupController.swift */; };
 		79AE54B02422781800BC5A8C /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 79AE54AF2422781800BC5A8C /* GoogleService-Info.plist */; };
 		79AE54DF24227E6700BC5A8C /* FirebaseCoreDiagnostics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 79AE54D424227E6500BC5A8C /* FirebaseCoreDiagnostics.framework */; };
@@ -113,6 +114,7 @@
 		798398E02427422900B881D4 /* GameInstructionsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameInstructionsView.swift; sourceTree = "<group>"; };
 		79A19B592428AE1000335BC7 /* LiveGameDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LiveGameDelegate.swift; sourceTree = "<group>"; };
 		79A19B5B2428AFB100335BC7 /* LiveMinefieldView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LiveMinefieldView.swift; sourceTree = "<group>"; };
+		79A19B5D2428E9EF00335BC7 /* LobbyPlayerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LobbyPlayerView.swift; sourceTree = "<group>"; };
 		79A599C8241C46FB009F5451 /* SendPopupController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SendPopupController.swift; sourceTree = "<group>"; };
 		79AE54AF2422781800BC5A8C /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		79AE54D424227E6500BC5A8C /* FirebaseCoreDiagnostics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = FirebaseCoreDiagnostics.framework; sourceTree = "<group>"; };
@@ -289,6 +291,7 @@
 				79A19B5B2428AFB100335BC7 /* LiveMinefieldView.swift */,
 				798398D62424F89600B881D4 /* ConnectionStatusBarView.swift */,
 				798398DA24273AD900B881D4 /* LobbyView.swift */,
+				79A19B5D2428E9EF00335BC7 /* LobbyPlayerView.swift */,
 				798398DC24273FF000B881D4 /* GameOptionsView.swift */,
 				798398DE2427420900B881D4 /* ReadyButtonView.swift */,
 				798398E02427422900B881D4 /* GameInstructionsView.swift */,
@@ -439,6 +442,7 @@
 				575FF94123F52059004DE08C /* Extensions.swift in Sources */,
 				57325CE823F248B900854932 /* TimedSetupController.swift in Sources */,
 				798398D924257DF500B881D4 /* AppStyle.swift in Sources */,
+				79A19B5E2428E9EF00335BC7 /* LobbyPlayerView.swift in Sources */,
 				798398DB24273AD900B881D4 /* LobbyView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
