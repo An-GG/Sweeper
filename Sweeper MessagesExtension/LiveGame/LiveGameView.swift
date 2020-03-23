@@ -9,6 +9,8 @@
 import Foundation
 import UIKit
 
+var GlobalLiveGameView : LiveGameView?
+
 class LiveGameView : View {
     
     let FFAGameView = LiveFFAGameView()
@@ -25,6 +27,8 @@ class LiveGameView : View {
     let BOTTOM_BAR_HEIGHT : CGFloat = 60
     
     override func initialize() {
+        GlobalLiveGameView = self
+        
         allGameViews = [FFAGameView]
         
         for view in allGameViews {

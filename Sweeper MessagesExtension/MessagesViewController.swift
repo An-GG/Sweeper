@@ -28,11 +28,7 @@ class MessagesViewController: MSMessagesAppViewController {
         globalDatabseRef = Database.database().reference()
         
         self.view.addSubview(liveView)
-        liveView.isHidden = true
-    }
-    
-    override func viewLayoutMarginsDidChange() {
-        
+        liveView.isHidden = false
     }
 
     // MARK: - Conversation Handling

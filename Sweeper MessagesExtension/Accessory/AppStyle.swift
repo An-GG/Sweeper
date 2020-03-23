@@ -15,9 +15,9 @@ enum ColorHex : String {
     case gGreen = "#0F9D58FF"
     case gYellow = "#F4B400FF"
     case purple = "#9C88FFFF"
+    case orangeYellow = "#FAB805FF"
 }
 
 func get(color : ColorHex) -> UIColor {
-    print(color.rawValue.lowercased())
     return UIColor(hex: color.rawValue.lowercased())!
 }

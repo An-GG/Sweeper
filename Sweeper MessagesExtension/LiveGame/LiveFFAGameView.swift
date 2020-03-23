@@ -64,6 +64,9 @@ class LiveFFAGameView : View, LiveGameDelegate, LiveMinefieldViewDelegate {
     // Internal Functions
     func liveUpdate(snap : DataSnapshot) {
         
+        // Connection Update
+        GlobalLiveGameView?.connectionStatusBar.set(status: .connected)
+        
         let val = snap.value as! [String:Any]
         
         // Lobby Update
@@ -72,7 +75,6 @@ class LiveFFAGameView : View, LiveGameDelegate, LiveMinefieldViewDelegate {
             let playerKeys = players.keys.sorted()
             for key in playerKeys {
                 let player = players[key]!
-                print(player)
                 let lobbyPlayer = LobbyPlayer(name: player["NAME"]!, imageName: player["IMAGENAME"]!, displayLetters: player["DISPLAYLETTERS"]!, color: player["COLOR"]!, id: player["ID"]!, ready: player["READY"]!)
                 lobby.append(lobbyPlayer)
             }
