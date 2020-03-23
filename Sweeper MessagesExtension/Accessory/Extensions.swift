@@ -53,6 +53,31 @@ extension TimeInterval{
     }
 }
 
+extension UIView {
+
+  // OUTPUT 1
+  func dropShadow(scale: Bool = true) {
+    layer.masksToBounds = false
+    layer.shadowColor = UIColor.black.cgColor
+    layer.shadowOpacity = 0.5
+    layer.shadowOffset = CGSize(width: -1, height: 1)
+    layer.shadowRadius = 1
+    layer.shouldRasterize = true
+    layer.rasterizationScale = scale ? UIScreen.main.scale : 1
+  }
+
+  // OUTPUT 2
+  func dropShadow(color: UIColor, opacity: Float = 0.5, offSet: CGSize, radius: CGFloat = 1, scale: Bool = true) {
+    layer.masksToBounds = false
+    layer.shadowColor = color.cgColor
+    layer.shadowOpacity = opacity
+    layer.shadowOffset = offSet
+    layer.shadowRadius = radius
+    layer.shouldRasterize = true
+    layer.rasterizationScale = scale ? UIScreen.main.scale : 1
+  }
+}
+
 func randomString(length: Int) -> String {
     let letters = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789"
     return String((0..<length).map{ _ in letters.randomElement()! })

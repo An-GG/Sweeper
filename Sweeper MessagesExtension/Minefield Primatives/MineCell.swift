@@ -68,7 +68,7 @@ class MineCell : View {
         }
     }
     @objc func cellTouchDown() {
-        var feedback = UIImpactFeedbackGenerator()
+        let feedback = UIImpactFeedbackGenerator()
         feedback.prepare()
         holdWaiting = true
         DispatchQueue.main.asyncAfter(deadline: .now() + 0.2) {
@@ -97,14 +97,7 @@ class MineCell : View {
         
     }
     
-    func getImage(style : cellStyle) {
-        var view = UIView()
-        if style == .new {
-            let imageView = UIImageView()
-            imageView.image = UIImage(named: "Cell")
-            
-        }
-    }
+    
     
 }
 

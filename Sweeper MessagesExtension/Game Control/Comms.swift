@@ -86,8 +86,6 @@ class Comms {
             gamemodeString = "live"
         case .swap:
             gamemodeString = "swap"
-        default:
-            gamemodeString = "UNKNOWN GAMEMODE"
         }
         
         let uniqueGameID = randomString(length: 20)

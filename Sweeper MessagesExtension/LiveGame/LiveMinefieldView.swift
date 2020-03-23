@@ -66,7 +66,6 @@ class LiveMinefieldView: View {
         switch status {
         case .opened:
             cell?.externalUserCellClick()
-            print(randomNumber())
         }
     }
     

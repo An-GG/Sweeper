@@ -33,6 +33,9 @@ class LiveFFAGameView : View, LiveGameDelegate, LiveMinefieldViewDelegate {
         minefieldView.delegate = self
         minefieldView.isHidden = true
         
+        let player = LobbyPlayer(name: "Jonatahn", imageName: "Sample", displayLetters: "SM", color: "Blue", id: "12343fdafsg")
+        lobbyView.set(players: [player, player, player, player])
+        
         self.addSubview(gameInstructionsView)
         self.addSubview(lobbyView)
         self.addSubview(readyButton)
@@ -45,7 +48,7 @@ class LiveFFAGameView : View, LiveGameDelegate, LiveMinefieldViewDelegate {
         sweeperLiveLogo.frame = CGRect(x: LIVE_LOGO_PADDING, y: 25, width: bounds.width - 2*LIVE_LOGO_PADDING, height: 100)
         gameOptionsView.frame = CGRect(x: 0, y: 140, width: bounds.width, height: gameOptionsView.SUGGESTED_HEIGHT)
         lobbyView.frame = CGRect(x: 0, y: 230, width: bounds.width, height: lobbyView.SUGGESTED_HEIGHT)
-        readyButton.frame = CGRect(x: (bounds.width - readyButton.SUGGESTED_WIDTH) / 2, y: 350, width: readyButton.SUGGESTED_WIDTH, height: readyButton.SUGGESTED_HEIGHT)
+        readyButton.frame = CGRect(x: (bounds.width - readyButton.SUGGESTED_WIDTH) / 2, y: 360, width: readyButton.SUGGESTED_WIDTH, height: readyButton.SUGGESTED_HEIGHT)
         gameInstructionsView.frame = CGRect(x: 0, y: bounds.height - 130, width: bounds.width, height: bounds.height)
         minefieldView.frame = bounds
     }
