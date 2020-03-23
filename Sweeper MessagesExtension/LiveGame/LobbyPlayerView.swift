@@ -40,7 +40,7 @@ class LobbyPlayerView : View {
         
         fullDisplayLabel.textColor = .gray
         fullDisplayLabel.textAlignment = .center
-        fullDisplayLabel.font = .systemFont(ofSize: 10, weight: .semibold)
+        fullDisplayLabel.font = .systemFont(ofSize: 10, weight: .medium)
         
         imageView.contentMode = .scaleAspectFill
         imageView.layer.cornerRadius = innerCircle.layer.cornerRadius
@@ -70,8 +70,6 @@ class LobbyPlayerView : View {
             imageView.image = img
         }
     }
-    
-    // Controller Interaction
     
 }
 

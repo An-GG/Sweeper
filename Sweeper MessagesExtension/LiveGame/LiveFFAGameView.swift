@@ -19,9 +19,14 @@ class LiveFFAGameView : View, LiveGameDelegate, LiveMinefieldViewDelegate {
     let readyButton = ReadyButtonView()
     let minefieldView = LiveMinefieldView()
     
+    let generator = FieldModel()
+    
     let LIVE_LOGO_PADDING : CGFloat = 30
     
+    var chanceNumber = 0
+    var nPlayersLastUpdate = 0
     var currentGameRef : DatabaseReference?
+    var id : String?
     
     override func initialize() {
         
@@ -32,6 +37,11 @@ class LiveFFAGameView : View, LiveGameDelegate, LiveMinefieldViewDelegate {
         
         minefieldView.delegate = self
         minefieldView.isHidden = true
+
+        // Options: Time Limit, Partners or Solo, Enemy Mines (Hidden or Shown)
+
+        let ops = [GameOptionView(name: "TIME LIMIT", bigLabelText: "5:00", image: nil), GameOptionView(name: "MODE", bigLabelText: "SOLO", image: nil), GameOptionView(name: "ENEMY MINES", bigLabelText: "SHOWN", image: nil)]
+        gameOptionsView.set(options: ops)
         
         self.addSubview(gameInstructionsView)
         self.addSubview(lobbyView)
@@ -83,6 +93,17 @@ class LiveFFAGameView : View, LiveGameDelegate, LiveMinefieldViewDelegate {
         } else {
             print("Log not found in snapshot.")
         }
+        
+        // Propose Minefield
+        if nPlayersLastUpdate != lobby.count {
+            nPlayersLastUpdate = lobby.count
+            generator.generateGrid(X: 16, Y: 30, nMines: 99)
+            let encodedField = globalComms.encode(fieldModel: generator)
+            currentGameRef?.child("FIELD").child(String(chanceNumber)).setValue(encodedField)
+        }
+        
+        
+        
     }
     
     
@@ -97,7 +118,7 @@ class LiveFFAGameView : View, LiveGameDelegate, LiveMinefieldViewDelegate {
             "CELL_X" : String(x),
             "CELL_Y" : String(y),
             "TYPE" : status.rawValue,
-            "PLAYER" : "PLAYERID"
+            "PLAYER" : id!
         ]
         currentGameRef?.child("EVENTLOG").childByAutoId().setValue(event)
     }
@@ -105,10 +126,12 @@ class LiveFFAGameView : View, LiveGameDelegate, LiveMinefieldViewDelegate {
     // Controller Interaction
     func startGame(UGID : String) {
         currentGameRef = globalDatabseRef.child(UGID)
+        id = convo?.localParticipantIdentifier.uuidString
+        chanceNumber = randomNumber()
         
         // List User As Participant on DB
-        let myPlayer = LobbyPlayer(name: "Ankush", imageName: "", displayLetters: "AG", color: "Green", id: "PLAYERID")
-        currentGameRef?.child("PLAYERS").childByAutoId().setValue(myPlayer.getDictionary())
+        let playerDict = LobbyPlayer(name: "Ankush", imageName: "", displayLetters: "AG", color: "Green", id: id!).getDictionary()
+        currentGameRef?.child("PLAYERS").childByAutoId().setValue(playerDict)
         
         // Listen for All Updates
         currentGameRef?.observe(.value) { (snap) in
