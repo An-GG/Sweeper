@@ -13,8 +13,19 @@ import UIKit
 class Minefield : View, UIScrollViewDelegate {
     
     var currentCells : [MineCell] = []
-    var X_COUNT = 12
-    var Y_COUNT = 10
+    
+    var lastX = 12
+    var lastY = 10
+    var X_COUNT = 12 {
+        didSet {
+            updateFieldFrames()
+        }
+    }
+    var Y_COUNT = 10 {
+        didSet {
+            updateFieldFrames()
+        }
+    }
     
     var CELL_DIM : CGFloat = 30
     var field = FieldModel()
@@ -48,12 +59,12 @@ class Minefield : View, UIScrollViewDelegate {
         for cell in currentCells {
             cell.removeFromSuperview()
         }
+        currentCells = []
     }
     
     func renderGrid() {
         clearField()
-        scroll.contentSize = CGSize(width: CGFloat(X_COUNT) * CELL_DIM, height: CGFloat(Y_COUNT) * CELL_DIM + 60)
-        zoomableView.frame = CGRect(origin: .zero, size: scroll.contentSize)
+        
         for Y in 0..<Y_COUNT {
             for X in 0..<X_COUNT {
                 let cell = MineCell()
@@ -62,6 +73,7 @@ class Minefield : View, UIScrollViewDelegate {
                 cell.frame = CGRect(x: CGFloat(X) * CELL_DIM, y: CGFloat(Y) * CELL_DIM, width: CELL_DIM, height: CELL_DIM)
                 cell.setFromModel(model: field.grid[X][Y])
                 field.grid[X][Y].cellView = cell
+                currentCells.append(cell)
                 zoomableView.addSubview(cell)
             }
         }
@@ -112,6 +124,14 @@ class Minefield : View, UIScrollViewDelegate {
         }
     }
     
+    func updateFieldFrames() {
+        if (lastX != X_COUNT) || (lastY != Y_COUNT) {
+            lastX = X_COUNT
+            lastY = Y_COUNT
+            scroll.contentSize = CGSize(width: CGFloat(X_COUNT) * CELL_DIM, height: CGFloat(Y_COUNT) * CELL_DIM)
+            zoomableView.frame = CGRect(origin: .zero, size: scroll.contentSize)
+        }
+    }
     
     override func layout() {
         scroll.frame = self.bounds

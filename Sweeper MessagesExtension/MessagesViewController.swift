@@ -28,7 +28,11 @@ class MessagesViewController: MSMessagesAppViewController {
         globalDatabseRef = Database.database().reference()
         
         self.view.addSubview(liveView)
-        liveView.isHidden = false
+        liveView.isHidden = true
+        
+        DispatchQueue.main.asyncAfter(deadline: .now() + 2) {
+            self.startLiveGame(UGID: "GAMETEST", gamemode: .FFA)
+        }
     }
 
     // MARK: - Conversation Handling

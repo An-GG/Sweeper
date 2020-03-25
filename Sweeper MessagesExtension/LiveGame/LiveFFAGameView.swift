@@ -20,6 +20,7 @@ class LiveFFAGameView : View, LiveGameDelegate, LiveMinefieldViewDelegate {
     let minefieldView = LiveMinefieldView()
     
     let generator = FieldModel()
+    var topField : String = ""
     
     let LIVE_LOGO_PADDING : CGFloat = 30
     
@@ -61,11 +62,15 @@ class LiveFFAGameView : View, LiveGameDelegate, LiveMinefieldViewDelegate {
         minefieldView.frame = bounds
     }
     
-    // Internal Functions
+    // Internal Methods
     func liveUpdate(snap : DataSnapshot) {
         
         // Connection Update
         GlobalLiveGameView?.connectionStatusBar.set(status: .connected)
+        
+        if let _ = snap.value as? [String:Any] {} else {
+            return
+        }
         
         let val = snap.value as! [String:Any]
         
@@ -76,9 +81,38 @@ class LiveFFAGameView : View, LiveGameDelegate, LiveMinefieldViewDelegate {
             for key in playerKeys {
                 let player = players[key]!
                 let lobbyPlayer = LobbyPlayer(name: player["NAME"]!, imageName: player["IMAGENAME"]!, displayLetters: player["DISPLAYLETTERS"]!, color: player["COLOR"]!, id: player["ID"]!, ready: player["READY"]!)
+                lobbyPlayer.chance = player["CHANCE"]
+                lobbyPlayer.key = key
                 lobby.append(lobbyPlayer)
             }
             lobbyView.set(players: lobby)
+        }
+        
+        // Assign Colors
+        var colorForId : [String:UIColor] = [:]
+        var playerKeyForChance : [String:String] = [:]
+        for player in lobby {
+            playerKeyForChance[player.chance!] = player.id
+        }
+        var counter = 0
+        for playerKey in playerKeyForChance.keys.sorted() {
+            colorForId[playerKeyForChance[playerKey]!] = UIColor(hex: PlayerColors[counter])!
+            if counter < 7 {
+                counter += 1
+            } else {
+                counter = 0
+            }
+        }
+        
+        // Check Ready Condition
+        var somePlayerNotReady = false
+        for player in lobby {
+            if player.ready == "NO" {
+                somePlayerNotReady = true
+            }
+        }
+        if !somePlayerNotReady {
+            readyConditionMet()
         }
         
         // Minefield Events
@@ -89,6 +123,8 @@ class LiveFFAGameView : View, LiveGameDelegate, LiveMinefieldViewDelegate {
                 let x = log[event]?["CELL_X"] as! String
                 let y = log[event]?["CELL_Y"] as! String
                 let type = log[event]?["TYPE"] as! String
+                let id = log[event]?["PLAYER"] as! String
+                let color = colorForId[id]
                 if type == "OPENED" {
                     minefieldView.setCell(x: Int(x)!, y: Int(y)!, status: .opened)
                 }
@@ -109,6 +145,30 @@ class LiveFFAGameView : View, LiveGameDelegate, LiveMinefieldViewDelegate {
         
     }
     
+    var readyConditionAlreadyMet = false
+    func readyConditionMet() {
+        if !readyConditionAlreadyMet {
+            readyConditionAlreadyMet = true
+            // Freeze UI
+            
+            // Delay to Make Sure
+            DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
+                self.currentGameRef?.child("FIELD").observeSingleEvent(of: .value, with: { (snap) in
+                    if let val = snap.value {
+                        if let fields = val as? [String:String] {
+                            let topKey = fields.keys.sorted().first!
+                            self.topField = fields[topKey]!
+                            let decoded = globalComms.decode(fieldString: self.topField)
+                            self.minefieldView.setField(field: decoded)
+                            self.minefieldView.isHidden = false
+                        }
+                    } else {
+                        print("ERROR: FIELD directory not found in database.")
+                    }
+                })
+            }
+        }
+    }
     
     // Delegate Interaction
     func becameReady() {
@@ -139,7 +199,8 @@ class LiveFFAGameView : View, LiveGameDelegate, LiveMinefieldViewDelegate {
         chanceNumber = randomNumber()
         
         // List User As Participant on DB
-        let playerDict = LobbyPlayer(name: "Ankush", imageName: "", displayLetters: "AG", color: "Green", id: id!, ready: "NO").getDictionary()
+        var playerDict = LobbyPlayer(name: "Ankush", imageName: "", displayLetters: "AG", color: "Green", id: id!, ready: "NO").getDictionary()
+        playerDict["CHANCE"] = String(chanceNumber)
         playerRef?.setValue(playerDict)
         
         // Listen for All Updates

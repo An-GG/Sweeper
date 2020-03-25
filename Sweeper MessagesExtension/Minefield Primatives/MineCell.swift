@@ -20,15 +20,17 @@ class MineCell : View {
     var isMine = false
     
     var padding : CGFloat = 2.5
+    var allTintableImageViews : [UIImageView] = []
     
     override func initialize() {
         self.backgroundColor = .clear
-        image.image = UIImage(named: "NewMineCellBack")
+        
+        image.image = UIImage(named: "NewMineCellBack")?.withRenderingMode(.alwaysTemplate)
         numLabel.font = .systemFont(ofSize: 10, weight: .bold)
         numLabel.textColor = .red
         numLabel.textAlignment = .center
         
-        cover.setBackgroundImage(UIImage(named: "NewMineCellCover"), for: .normal)
+        cover.setBackgroundImage(UIImage(named: "NewMineCellCover")?.withRenderingMode(.alwaysTemplate), for: .normal)
         cover.addTarget(self, action: #selector(cellClicked), for: .touchUpInside)
         cover.showsTouchWhenHighlighted = false
         cover.addTarget(self, action: #selector(cellTouchDown), for: .touchDown)
@@ -73,7 +75,7 @@ class MineCell : View {
         holdWaiting = true
         DispatchQueue.main.asyncAfter(deadline: .now() + 0.2) {
             if self.holdWaiting {
-                self.cover.setImage(UIImage(named: "NewMineCellFlag"), for: .normal)
+                self.cover.setImage(UIImage(named: "NewMineCellFlag")?.withRenderingMode(.alwaysTemplate), for: .normal)
                 self.holdWaiting = false
                 feedback.impactOccurred()
             }
@@ -84,7 +86,7 @@ class MineCell : View {
     func setFromModel(model :  CellModel) {
         self.isMine = model.isMine
         if model.isMine {
-            image.image = UIImage(named: "NewMineCellExplosion")
+            image.image = UIImage(named: "NewMineCellExplosion")?.withRenderingMode(.alwaysTemplate)
         } else {
             numLabel.text = String(model.surroundingMines)
             if numLabel.text == "0" {
@@ -93,7 +95,9 @@ class MineCell : View {
         }
     }
     
-    func setStyle(style : cellStyle) {
+    func set(color : UIColor) {
+        cover.tintColor = color
+        image.tintColor = color
         
     }
     

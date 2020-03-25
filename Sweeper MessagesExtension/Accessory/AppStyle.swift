@@ -21,3 +21,5 @@ enum ColorHex : String {
 func get(color : ColorHex) -> UIColor {
     return UIColor(hex: color.rawValue.lowercased())!
 }
+
+let PlayerColors = ["#55efc4ff", "#81ececff", "#74b9ffff", "#a29bfeff", "#ffeaa7ff", "#fab1a0ff", "#ff7675ff", "#fd79a8ff"]

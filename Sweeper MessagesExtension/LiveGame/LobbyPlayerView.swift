@@ -84,6 +84,8 @@ class LobbyPlayer {
     var color : String
     var id : String
     var ready : String
+    var chance : String?
+    var key : String?
     
     required init(name: String, imageName: String, displayLetters: String, color: String, id : String, ready : String) {
         self.name = name

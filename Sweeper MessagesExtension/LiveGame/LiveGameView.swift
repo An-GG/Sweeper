@@ -77,6 +77,7 @@ class LiveGameView : View {
     }
     
     @objc func endClicked() {
+        globalDatabseRef.child("GAMETEST").removeValue()
         self.isHidden = true
     }
     
