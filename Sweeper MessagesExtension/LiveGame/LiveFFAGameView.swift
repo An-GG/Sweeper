@@ -28,7 +28,7 @@ class LiveFFAGameView : View, LiveGameDelegate, LiveMinefieldViewDelegate {
     var nPlayersLastUpdate = 0
     var currentGameRef : DatabaseReference?
     var playerRef : DatabaseReference?
-    var id : String?
+    var localID : String?
     
     override func initialize() {
         
@@ -103,6 +103,7 @@ class LiveFFAGameView : View, LiveGameDelegate, LiveMinefieldViewDelegate {
                 counter = 0
             }
         }
+        minefieldView.field.localCellsTint = nil
         
         // Check Ready Condition
         var somePlayerNotReady = false
@@ -117,16 +118,15 @@ class LiveFFAGameView : View, LiveGameDelegate, LiveMinefieldViewDelegate {
         
         // Minefield Events
         if let log = val["EVENTLOG"] as? [String:[String:Any]] {
-            minefieldView.field.renderGrid()
             let events = log.keys.sorted()
             for event in events {
                 let x = log[event]?["CELL_X"] as! String
                 let y = log[event]?["CELL_Y"] as! String
                 let type = log[event]?["TYPE"] as! String
                 let id = log[event]?["PLAYER"] as! String
-                let color = colorForId[id]
+                let color : UIColor? = colorForId[id]
                 if type == "OPENED" {
-                    minefieldView.setCell(x: Int(x)!, y: Int(y)!, status: .opened)
+                    minefieldView.setCell(x: Int(x)!, y: Int(y)!, status: .opened, color: color, asLocalUser: id == localID)
                 }
             }
         } else {
@@ -160,6 +160,7 @@ class LiveFFAGameView : View, LiveGameDelegate, LiveMinefieldViewDelegate {
                             self.topField = fields[topKey]!
                             let decoded = globalComms.decode(fieldString: self.topField)
                             self.minefieldView.setField(field: decoded)
+                            self.minefieldView.field.setCellsToAnimate()
                             self.minefieldView.isHidden = false
                         }
                     } else {
@@ -186,7 +187,7 @@ class LiveFFAGameView : View, LiveGameDelegate, LiveMinefieldViewDelegate {
             "CELL_X" : String(x),
             "CELL_Y" : String(y),
             "TYPE" : status.rawValue,
-            "PLAYER" : id!
+            "PLAYER" : localID!
         ]
         currentGameRef?.child("EVENTLOG").childByAutoId().setValue(event)
     }
@@ -195,11 +196,11 @@ class LiveFFAGameView : View, LiveGameDelegate, LiveMinefieldViewDelegate {
     func startGame(UGID : String) {
         currentGameRef = globalDatabseRef.child(UGID)
         playerRef = currentGameRef?.child("PLAYERS").childByAutoId()
-        id = convo?.localParticipantIdentifier.uuidString
+        localID = convo?.localParticipantIdentifier.uuidString
         chanceNumber = randomNumber()
         
         // List User As Participant on DB
-        var playerDict = LobbyPlayer(name: "Ankush", imageName: "", displayLetters: "AG", color: "Green", id: id!, ready: "NO").getDictionary()
+        var playerDict = LobbyPlayer(name: "Ankush", imageName: "", displayLetters: "AG", color: "Green", id: localID!, ready: "NO").getDictionary()
         playerDict["CHANCE"] = String(chanceNumber)
         playerRef?.setValue(playerDict)
         

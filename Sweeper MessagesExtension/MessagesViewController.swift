@@ -25,7 +25,7 @@ class MessagesViewController: MSMessagesAppViewController {
         globalController = self
         
         FirebaseApp.configure()
-        globalDatabseRef = Database.database().reference()
+        globalDatabseRef = Database.database().reference().child("ALLGAMES")
         
         self.view.addSubview(liveView)
         liveView.isHidden = true

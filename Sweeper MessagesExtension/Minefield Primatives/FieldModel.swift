@@ -7,6 +7,7 @@
 //
 
 import Foundation
+import UIKit
 
 class FieldModel {
     
@@ -81,9 +82,29 @@ class CellModel {
     var surroundingMines = 0
     var cellView : MineCell?
     
+    var shouldBeOpen = false
+    var shouldSetColor : UIColor? = nil
+    
     func setValue(isMine: Bool, surroundingMines: Int) {
         self.isMine = isMine
         self.surroundingMines = surroundingMines
+    }
+    
+    func checkVisualConsistency() -> Bool {
+        var isConsistent = true
+        if cellView!.cover.isHidden != shouldBeOpen {
+            isConsistent = false
+        }
+        if cellView!.currentTintColor != shouldSetColor {
+            isConsistent = false
+        }
+        return isConsistent
+    }
+    
+    func updateVisualsIfNeeded() {
+        if !checkVisualConsistency() {
+            cellView?.set(color: shouldSetColor, open: shouldBeOpen)
+        }
     }
     
 }

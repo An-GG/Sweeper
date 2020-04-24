@@ -61,11 +61,20 @@ class LiveMinefieldView: View {
     }
     
     // Controller Interaction
-    func setCell(x: Int, y: Int, status: CellUpdateType) {
-        setCell(x: x, y: y, status: status, color: nil)
-    }
-    func setCell(x: Int, y: Int, status: CellUpdateType, color: UIColor?) {
+    func setCell(x: Int, y: Int, status: CellUpdateType, color: UIColor? = nil, asLocalUser: Bool? = false) {
         let cell = field.field.getMine(xPos: x, yPos: y)?.cellView
+        if let c = color {
+            field.newCellsTint = c
+         }
+        
+        if asLocalUser == true {
+            switch status {
+            case .opened:
+                cell?.localUserCellClick()
+            }
+            return
+        }
+        
         switch status {
         case .opened:
             cell?.externalUserCellClick()

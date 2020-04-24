@@ -38,6 +38,9 @@ class Minefield : View, UIScrollViewDelegate {
     
     var status : gameStatusType = .inProgress
     
+    var localCellsTint : UIColor? = nil
+    var newCellsTint : UIColor? = nil
+    
     override func initialize() {
         scroll.backgroundColor = .clear
         scroll.delegate = self
@@ -79,6 +82,18 @@ class Minefield : View, UIScrollViewDelegate {
         }
     }
     
+    func resetGrid() {
+        for c in currentCells {
+            c.resetCell()
+        }
+    }
+    
+    func setCellsToAnimate() {
+        for cell in currentCells {
+            cell.settingAnimates = true
+        }
+    }
+    
     
     
     // Controller Targets
@@ -86,18 +101,23 @@ class Minefield : View, UIScrollViewDelegate {
         controller?.mineClicked()
         let mine = field.getMine(xPos: x, yPos: y)!
         if mine.isMine {
-            mine.cellView!.openCell()
+            mine.shouldBeOpen = true//mine.cellView!.openCell()
             controller?.gameComplete()
             status = .mineClicked
         } else {
-            mine.cellView!.openCell()
+            // Color Assignment Tint
+            if let c = newCellsTint {
+                mine.shouldSetColor = c//mine.cellView!.set(color: c)
+            }
+            
+            mine.shouldBeOpen = true//mine.cellView!.openCell()
             if mine.surroundingMines == 0 {
                 // Click on surrounding cells
                 let pass = [-1, 0, 1]
                 for xO in pass {
                     for yO in pass {
                         if let newMine = field.getMine(xPos: x + xO, yPos: y + yO) {
-                            if !newMine.cellView!.cover.isHidden { // Checks if mine has already been opened
+                            if !newMine.shouldBeOpen {//if !newMine.cellView!.cover.isHidden { // Checks if mine has already been opened
                                 cellClicked(x: x + xO, y: y + yO)
                             }
                         }
@@ -105,8 +125,17 @@ class Minefield : View, UIScrollViewDelegate {
                 }
             }
         }
+        updateVisuals()
         checkIfGameOver()
-        
+    }
+    
+    func updateVisuals() {
+        for Y in 0..<Y_COUNT {
+            for X in 0..<X_COUNT {
+                let cell = field.getMine(xPos: X, yPos: Y)
+                cell?.updateVisualsIfNeeded()
+            }
+        }
     }
     
     func checkIfGameOver() {
